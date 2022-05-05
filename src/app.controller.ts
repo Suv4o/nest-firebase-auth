@@ -13,7 +13,7 @@ export class AppController {
   }
 
   @Post('protected')
-  @Permissions('DEVELOPER')
+  @Permissions('DEVELOPER', 'ADMIN')
   @UseGuards(AuthGuard)
   getHelloProtected(): string {
     return 'Protected';
