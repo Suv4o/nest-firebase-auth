@@ -22,13 +22,10 @@ export class AuthGuard implements CanActivate {
       'permissions',
       context.getHandler(),
     );
-
-    console.log('Permissions: ', permissions);
-
     try {
       const claims = await app.auth().verifyIdToken(idToken);
 
-      if (claims.admin === 'SUPER_ADMIN') {
+      if (claims.role === permissions[0]) {
         return true;
       }
       throw new UnauthorizedException();

@@ -6,7 +6,7 @@ import { UserDto } from './dto/user.dto';
 export class UserService {
   constructor(private readonly admin: FirebaseAdmin) {}
 
-  async createUser(userRequest: UserDto): Promise<void> {
+  async createUser(userRequest: UserDto): Promise<any> {
     const { email, password, firstName, lastName, role } = userRequest;
     const app = this.admin.setup();
 
@@ -16,10 +16,8 @@ export class UserService {
         password,
         displayName: `${firstName} ${lastName}`,
       });
-      const user = await app
-        .auth()
-        .setCustomUserClaims(createdUser.uid, { role });
-      return user;
+      await app.auth().setCustomUserClaims(createdUser.uid, { role });
+      return createdUser;
     } catch (error) {
       throw new BadRequestException(error.message);
     }

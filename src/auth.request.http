@@ -1,4 +1,4 @@
-### Test Hello
+### Test Unbprotected
 GET http://localhost:3001/hello HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer xxx
