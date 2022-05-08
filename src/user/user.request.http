@@ -5,7 +5,7 @@ Content-Type: application/json
 Authorization: Bearer xxx
 
 {
-    "email": "company_admin@test.com",
+    "email": "company_admin24@test.com",
     "password": "P@ssword1",
     "firstName": "Company",
     "lastName": "Test",
