@@ -1,7 +1,6 @@
 import { Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { AppService } from './app.service';
-import { AuthGuard } from './guards/auth.guard';
-import { Permissions } from './decorators/permissions.decorator';
+import { Auth } from './decorators/auth.decorator';
 
 @Controller()
 export class AppController {
@@ -13,8 +12,7 @@ export class AppController {
   }
 
   @Post('protected')
-  @Permissions('SUPER_ADMIN')
-  @UseGuards(AuthGuard)
+  @Auth('SUPER_ADMIN')
   getHelloProtected(): string {
     return 'Protected';
   }
