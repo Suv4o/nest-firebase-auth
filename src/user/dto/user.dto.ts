@@ -9,9 +9,9 @@ import {
 } from 'class-validator';
 
 enum Roles {
-  ADMIN = 'SUPER_ADMIN',
-  USER = 'COMPANY_ADMIN',
-  DEVELOPER = 'ADVERTISER',
+  ADMIN = 'ADMIN',
+  USER = 'USER',
+  DEVELOPER = 'DEVELOPER',
 }
 
 export class UserDto {
